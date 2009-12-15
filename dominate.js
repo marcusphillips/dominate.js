@@ -15,7 +15,7 @@
   ////
   //// Setup
 
-  var Q = QOMBAT.queries, B = QOMBAT.browser;
+  var Q = QOMBAT.queries;
   var T = QOMBAT._initialize_module({
     NAME : 'templates',
     SHORTCUT : 'T',
@@ -71,7 +71,7 @@
     }else if( item.nodeType ){ // add all DOM elements to the contents array
       contents.push(item);
     }else if( Q.type_of(item, ['string', 'number'])  ){ // render strings and numbers into nodes and place them in the content array
-      contents.push(document.createTextNode(B.unescape_html(item)));
+      contents.push(document.createTextNode(Q.unescape_html(item)));
     }else if( item.jquery ){ // place all memebers of jquery objects into the contents array
       Q.ascend(item, function(which, node){
         contents.push(node);
